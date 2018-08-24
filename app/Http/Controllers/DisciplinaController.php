@@ -27,6 +27,7 @@ class DisciplinaController extends Controller
     public function create()
     {
         //
+        return view('disciplinas.create');
     }
 
     /**
@@ -38,6 +39,11 @@ class DisciplinaController extends Controller
     public function store(Request $request)
     {
         //
+        $disciplina = new Disciplina;
+        $disciplina->titulo = $request->titulo;
+        $disciplina->ementa = $request->ementa;
+        $disciplina->save();
+        return redirect('/');
     }
 
     /**
